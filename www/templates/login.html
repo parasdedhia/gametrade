@@ -1,0 +1,23 @@
+<ion-view id="loginView" view-title="Login">
+    <ion-content class="padding splash">
+        <div id="loginLabel"  class="list card padding my_rounded_corners">
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="text" ng-model="user.email">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="user.pwdForLogin">
+            </label>
+            <button ng-click="signIn(user)" class="button button-block button-positive activated my_rounded_corners_button">
+                Sign In
+            </button>
+        </div>
+        <div class="list" style="text-align:center">
+            <button ng-click="modal.show()" class="button button-small icon-left ion-person-add button-balanced my_rounded_corners_button">
+                Create New Account
+            </button>
+        </div>
+
+    </ion-content>
+</ion-view>

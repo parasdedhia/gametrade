@@ -1,0 +1,33 @@
+ 
+ <div class="bar bar-header bar-dark">
+ <a href="#/tab/posts"><i class="button button-clear button-icon ion-android-arrow-back"></i></a>   
+  <h1 class="title">Trade details</h1> 
+ </div>   
+
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-item class="item-text-wrap" 
+            ng-repeat="name in post | filter:{from:whichPost}|filter:{Posted_at:posted_at}">    
+                <h2>Post: {{name.post}}</h2>
+                <p>By: {{name.from}}</p>
+            </ion-item>
+        
+        </ion-list>
+        <div class="list list-inset"><div class="item item-divider"><b>Comments</b></div>
+        
+        <ion-list>
+            <ion-item class="chat-item item-text-wrap" ng-repeat="comment in comments | filter:{postCreateTime:posted_at} | orderBy: 'commented_at' : true">    
+                <h2>{{comment.comment}}</h2>
+                <p>By: {{comment.from}}</p>
+                <p>At: {{comment.commented_at| date:'medium'}</p>
+                </ion-item>
+        </ion-list>
+        </div>
+            <div class="list list-inset">
+            <textarea class="item" ng-model="comment" placeholder="write a reply" style="text-align: center;"></textarea>
+            </label>
+            <div style="text-align:center">
+            <button  class="button button-large button-icon ion-compose" ng-click="addComment(comment)"></button>
+            </div>
+            </div>
+    </ion-content>
